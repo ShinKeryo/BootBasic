@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h3>타임리프 변수, 제어문</h3>
+	
+	<b th:text="홍길동"></b>
+	<b th:text="${'홍길동'}"></b>
+	<b>[[${'홍길동'}]]</b>
+	
+	<hr>
+	
+	<h3 th:text="${1 == 1}"></h3>
+	<h3>[[${1 == 1}]]</h3>
+	
+	<hr>
+	
+	<h3 th:text="${true} and ${false}"></h3>
+	<h3 th:text="${true && false}"></h3>
+	<h3>[[${true && false}]]</h3>
+	
+	<H3>변수</H3>
+	
+	<div th:with="a=1, b=2">
+		[[${a}]]<br>
+		[[${b}]]<br>
+		[[${a == b}]]<br>
+	</div>
+	
+	<hr>
+	
+	<h3>if문~else문(unless는 동일한 조건을 넣습니다)</h3>
+	
+	<div th:with="a=6">
+	
+		<span th:if="${a == 5}">[[${a}+'입니다']]</span><br>
+		
+		<span th:unless="${a == 5}"> [[${a}+'입니다']]</span>
+	</div>
+	
+	
+	<h3>3항 연산식</h3>
+	<p th:with=" a = '홍길동' ">
+		[[${a == '홍길동'? '홍길동입니다' : '홍길동이 아닙니다'}]]
+	</p>
+	
+		
+		
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	
+	<h3>타임리프 a링크</h3>
+	
+	<a href="/view/ex01/">그냥 (이렇게 쓰면 타임리프 문법을 사용하지 못한다)</a>
+	<br>
+	<a th:href="@{/view/ex01}">타임리프 a링크</a>
+	
+	<!--
+		매개값을 넘기는 방법은 2가지
+		1. 경로 뒤에 key=value
+		2. 경로/값/값
+		
+	 -->
+	<br>
+	<a href="/view/ex03_result2/10/홍길동">쿼리파라미터</a>
+	<br>	
+	<ul>
+		<li th:each="vo : ${list}">
+			<a th:href="@{/view/ex03_result(id=${vo.id},age=${vo.age})}">쿼리스트링으로 데이터 넘기기(소괄호 (키=값))</a>
+		
+			<br>
+			<br>
+			
+			<a th:href="@{/view/ex03_result2/{a}/{b}(a=${vo.id}, b=${vo.age})}">쿼리파라미터 방식</a>
+		
+		
+		</li>
+	</ul>
+	
+	
+	
+	
+	
+	
+	
+	
+</body>
+</html>
